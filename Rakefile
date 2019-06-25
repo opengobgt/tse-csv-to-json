@@ -23,7 +23,7 @@ VOTOS = {
   total_votos: 0,
   acta_cuadra: 0,
   impugnaciones: 0,
-  desglose: []
+  partidos: []
 }.freeze
 
 ACTA = {
@@ -136,6 +136,17 @@ task default: %w[usage]
 task :usage do
   puts 'Para ver mas opciones digite:'
   puts '  rake -vT'
+end
+
+desc 'Limpia el directorio de resultados'
+task :clean do
+  FileUtils.rm_rf('resultados')
+end
+
+desc 'Prepara el ambiente de desarrollo'
+task :setup do
+  Rake::Task[:clean].invoke
+  FileUtils.mkdir('resultados')
 end
 
 desc 'Importar diputados distritales'
