@@ -198,17 +198,6 @@ task :importar_parlamento_centroamericano, [:archivo, :directorio] do |_t, args|
   importar_archivo(archivo, directorio, :parlamento_centroamericano)
 end
 
-desc 'Importar archivo de parlamento centroamericano'
-task :importar_parlamento_centroamericano, [:archivo, :directorio] do |_t, args|
-  archivo = args[:archivo]
-  directorio = (args[:directorio] ||= 'resultados')
-  raise "Parametro 'archivo' es requerido." if archivo.nil?
-  raise "Archivo #{archivo} no encontrado." unless File.exist?(archivo)
-
-  importar_archivo(archivo, directorio, :parlamento_centroamericano)
-end
-
-
 desc 'Importar archivo de diputados por listado nacional'
 task :importar_listado_nacional, [:archivo, :directorio] do |_t, args|
   archivo = args[:archivo]
